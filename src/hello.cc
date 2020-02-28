@@ -3,7 +3,9 @@
 
 napi_value SayHello(napi_env env, napi_callback_info info) {
   printf("Hello, N-API.\n");
-  return NULL;
+  napi_value world;
+  napi_create_string_utf8(env, "string napi_create_string_utf8", 100, &world); // 100这个参数值表示给字符串分配的空间大小。太长会出现乱码。
+  return world;
 }
 
 napi_value Init(napi_env env, napi_value exports) {
